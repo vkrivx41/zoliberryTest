@@ -2,14 +2,9 @@
 
     namespace App;
     
-    use App\Services\EmailService;
-    use App\Services\InvoiceService;
-    use App\Services\PaddlePayment;
-    use App\Services\PaymentGatewayService;
-    use App\Services\PaymentGatewayServiceInterface;
-    use App\Services\SalesTaxService;
-    use App\Services\StripePayment;
-    use PhpParser\Node\Stmt\Continue_;
+    use App\Exceptions\RouterNotFoundException;
+    use Psr\Container\ContainerExceptionInterface;
+    use Psr\Container\NotFoundExceptionInterface;
 
     class Initiator
     {
@@ -23,23 +18,23 @@
         )
         {
             static::$db = new DB($config->db ?? []);
-
-            $this->container->set(PaymentGatewayServiceInterface::class, StripePayment::class);
         }
 
         public static function db(): DB
         {
             return static::$db;
         }
-        public function run()
+        public function run(): void
         {
             try {
                 echo $this->router->resolve(
                     strtolower($this->request['method']),
                     $this->request['uri']
                 );
-            } catch (RouterNotFoundExceptions) {
+            } catch (RouterNotFoundException) {
                 http_response_code(404);
+            } catch (NotFoundExceptionInterface|ContainerExceptionInterface|\ReflectionException $e) {
+                echo $e;
             }
         }
     }
