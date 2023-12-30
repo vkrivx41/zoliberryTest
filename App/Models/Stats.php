@@ -33,7 +33,7 @@ class Stats extends Model
     public function authorStatus(string $id, string $start, string $end)
     {
         try {
-            $query = "SELECT * FROM article WHERE author = :username OR author = :email AND created_at BETWEEN :start AND :end ORDER BY created_at DESC LIMIT 3";
+            $query = "SELECT * FROM Article WHERE author = :username OR author = :email AND created_at BETWEEN :start AND :end ORDER BY created_at DESC LIMIT 3";
             $stmt = $this->db->prepare($query);
             $stmt->execute(
                 [
@@ -61,7 +61,7 @@ class Stats extends Model
     public function moderators(string $start_date, string $end_date)
     {
         try {
-            $query = "SELECT mo.username, SUM(ar.views) as 'views', COUNT(*) as 'articles' FROM moderator mo LEFT JOIN Article ar ON ar.author = mo.username OR ar.author = mo.email WHERE created_at BETWEEN ? AND ? GROUP BY mo.username ORDER BY `views` DESC, `articles` DESC, mo.username ASC;";
+            $query = "SELECT mo.username, SUM(ar.views) as 'views', COUNT(*) as 'articles' FROM Moderator mo LEFT JOIN Article ar ON ar.author = mo.username OR ar.author = mo.email WHERE created_at BETWEEN ? AND ? GROUP BY mo.username ORDER BY `views` DESC, `articles` DESC, mo.username ASC;";
             $stmt = $this->db->prepare($query);
             $stmt->execute(
                 [
