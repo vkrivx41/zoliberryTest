@@ -8,7 +8,7 @@
         public function store(array $info): bool
         {
             try {
-                $query = "INSERT INTO messages(sender_email, sender_telephone, sender_name, body) VALUES (?, ?, ?, ?)";
+                $query = "INSERT INTO Messages(sender_email, sender_telephone, sender_name, body) VALUES (?, ?, ?, ?)";
                 $stmt = $this->db->prepare($query);
 
                 $stmt->execute(
