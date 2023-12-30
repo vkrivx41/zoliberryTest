@@ -1,0 +1,121 @@
+
+@import 'Partials/_algining.scss';
+@import 'Partials/_media_queries.scss';
+
+
+
+.stats_nav{
+    width: 100%;
+    height: 40px;
+
+    @include flexDisplayJustify(space-between);
+    padding: 0 15px;
+    margin-bottom: 20px;
+
+    .manage{
+        height: 100%;
+        @include flexDisplayJustify(center);
+       
+
+        a{
+            background: var(--body-bg-color);
+            text-decoration: none;
+            color: white;
+            padding: 10px;
+            border-radius: 3px;
+
+            &:hover{
+                opacity: .9;
+            }
+        }
+    }
+
+    .info{
+        height: 100%;
+        @include flexDisplayJustify(center, 15px);
+
+        .count, .text{
+            height: 100%;
+            background: var(--body-bg-color);
+            @include flexDisplayJustify(center);
+            color: white;
+            border-radius: 3px;
+        }
+        .count{
+            width: 35px;
+        }
+
+        .text{
+            padding: 0 10px;
+        }
+    }
+}
+
+.authors_stats_container{
+    color: black;
+    width: 100%;
+    height: calc(100% - 5px);
+    padding: 0 20px;
+
+    @include flexDisplayJustify(flex-start, 41.473px);
+    align-items: flex-start;
+    flex-wrap: wrap;
+    overflow: auto;
+
+    .stats{
+        width: 300px;
+        height: 100px;
+        background: var(--body-bg-color);
+        padding: 10px;
+        border-radius: 3px;
+
+        &:hover{
+            opacity: .9;
+        }
+        .username, .articles, .views{
+            color: white;
+        }
+        .username{
+            font-size: 24px;
+            padding: 5px 0;
+        }
+    }
+}
+
+
+.stats_contents{
+    height: 100%;
+    width: 100%;
+
+    .header{
+        height: 40px;
+        background: var(--body-bg-color);
+        color: white;
+        padding: 0 20px;
+        font-size: 17px;
+        letter-spacing: .3px;
+
+        @include flexDisplayJustify(flex-start);
+    }
+
+    .stats{
+        margin: 20px 0;
+        width: 350px;
+        padding: 20px;
+        background: var(--body-bg-color);
+        color: white;
+        border-radius: 3px;
+        height: 100px;
+        @include flexDisplayJustify(center);
+        flex-direction: column;
+
+        &:hover{
+            opacity: .9;
+        }
+
+        .articles, .views{
+            font-size: 24px;
+            padding: 5px 0;
+        }
+    }
+}

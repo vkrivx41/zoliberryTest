@@ -1,0 +1,75 @@
+
+@import 'Partials/_algining.scss';
+@import 'Partials/_media_queries.scss';
+
+body{
+    background: red;
+}
+
+
+title{
+    font-size: 100px;
+}
+
+.stats_contents{
+    .header{
+        @include flexDisplayJustify(flex-end);
+
+        div{
+            margin: 0 10px;
+        }
+    }
+}
+
+.author_stats{
+
+    .article{
+        margin: 10px 0;
+        height: 60px;
+        width: 100%;
+        border-radius: 3px;
+        @include flexDisplayJustify(space-between, 10px);
+
+        div{
+            height: 100%;
+            width: 100%;
+            background: var(--body-bg-color);
+            padding: 10px 10px;
+            border-radius: 3px;
+            @include flexDisplayJustify(flex-start);
+            color: white;
+        }
+
+        .views{
+            flex: 1 1 90px;
+            @include flexDisplayJustify(center);
+        }
+
+        .title{
+            font-size: 20px;
+        }
+
+        .date{
+            flex: 1 1 200px;
+        }
+
+    }
+
+    .heading{
+        height: 45px;
+        margin: 20px 0;
+        background: black;
+        @include flexDisplayJustify(flex-end, 10px);
+
+        .views{
+            height: 100%;
+            width: 80px;
+            color: white;
+            font-weight: 550;
+            @include flexDisplayJustify(center);
+            padding: 0 10px;
+            border-radius: 3px;
+            background: var(--body-bg-color);
+        }
+    }
+}

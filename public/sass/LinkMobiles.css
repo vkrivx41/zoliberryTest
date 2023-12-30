@@ -1,0 +1,139 @@
+*, *::after, *::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --body-bg-color: rgb(0, 135, 180);
+  --nav-height: 45px;
+  --nav-text-color: hsl(0, 0%, 0%);
+  --nav-bg-color: hsl(0, 0%, 100%);
+  --left-part-height: 30%;
+  --body-gap: 16px;
+  --footer-height: 300px;
+  --scale: .96;
+  --post-height: 250px;
+}
+
+.mobile-popular-header {
+  transform: scale(var(--scale));
+  height: 35px;
+  width: 100%;
+  display: none;
+  margin-top: -50px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: auto;
+}
+
+@media screen and (max-width: 700px) {
+  .mobile-popular-header {
+    display: flex;
+  }
+}
+
+.mobile-popular-header .text {
+  background: var(--nav-bg-color);
+  color: var(--nav-text-color);
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: auto;
+  padding: 0 10px;
+  display: none;
+  border: 1px solid white;
+}
+
+@media screen and (max-width: 700px) {
+  .mobile-popular-header .text {
+    display: flex;
+  }
+}
+
+.mobile_popular_posts {
+  width: 700px;
+  display: none;
+}
+
+@media screen and (max-width: 700px) {
+  .mobile_popular_posts {
+    width: 100%;
+    --post-height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--body-gap);
+    flex-wrap: wrap;
+    transform: scale(var(--scale));
+  }
+}
+
+.mobile_popular_posts .popular {
+  --bottom-push: 35px;
+  flex: 1 1 200px;
+  height: var(--post-height);
+  width: 100%;
+  background: #000;
+  position: relative;
+}
+
+.mobile_popular_posts .popular .wrapper {
+  position: absolute;
+  z-index: 10;
+}
+
+.mobile_popular_posts .popular .image {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+
+.mobile_popular_posts .popular .image .image-link {
+  height: 100%;
+  width: 100%;
+}
+
+.mobile_popular_posts .popular .image .image-link img {
+  height: 100%;
+  width: 100%;
+}
+
+.mobile_popular_posts .popular .title {
+  position: absolute;
+  bottom: var(--bottom-push);
+  z-index: 11;
+  padding: 0 10px;
+}
+
+.mobile_popular_posts .popular .title .title-link {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.mobile_popular_posts .popular .description {
+  position: absolute;
+  bottom: 0;
+  height: vae(--bottom-push);
+  z-index: 11;
+  padding: 15px 10px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+}
+
+.mobile_popular_posts .popular .description .tag {
+  color: white;
+  font-size: 15px;
+}
+
+.mobile_popular_posts .popular .description .author {
+  color: white;
+  font-size: 15px;
+}
+/*# sourceMappingURL=LinkMobiles.css.map */

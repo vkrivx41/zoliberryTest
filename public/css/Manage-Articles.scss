@@ -1,0 +1,199 @@
+@import "./Partials/algining.scss";
+@import "./Partials/media_queries.scss";
+
+
+:root{
+    --loadmore-height: 50px;
+}
+
+
+.manage-articles-contents{
+
+    --top-nav-height: 40px;
+    --items-padding: 20px;
+
+    width: 100%;
+    height: 100%;
+    @include flexDisplayJustify(center, 30px);
+    flex-direction: column;
+
+    .top-nav{
+        width: 100%;
+        // flex: 1 1 ;
+        @include flexDisplayJustify(flex-start, 3px);
+        align-items: center;
+        flex-wrap: wrap;
+        height: auto;
+
+        @include EightHundred{
+            @include flexDisplayJustify(space-between, 3px);
+        }
+
+        .create-new{
+            height: var(--top-nav-height);
+            font-size: 1rem;
+            padding: 10px;
+            border-radius: 3px;
+            background: var(--body-bg-color);
+            
+            a{
+                text-decoration: none;
+                color: white;
+            }
+        }
+
+        .search-element{
+            height: var(--top-nav-height);
+            width: 40%;
+
+            input{
+                width: 100%;
+                height: 40px;
+                padding: 0 10px;
+                margin: 0 40px;
+                border: none;
+                outline: none;
+                border-radius: 4px;
+
+                @include EightHundred{
+                    margin: 0;
+                }
+            }
+        }
+        .count{
+            height: var(--top-nav-height);
+            margin-left: auto;
+            margin-right: var(--items-padding);
+            background: var(--body-bg-color);
+            padding: 10px;
+            border-radius: 4px;
+            color: white;
+
+            @include EightHundred{
+                margin: 0;
+            }
+            @include FiveHundred{
+                display: none;
+            }
+        }
+
+        .count-text{
+            height: var(--top-nav-height);
+            background: var(--body-bg-color);
+            padding: 10px;
+            border-radius: 4px;
+            color: white;
+
+            @include EightHundred{
+                display: none;
+            }
+        }
+    }
+    .manage-body{
+        width: 100%;
+        flex: 1 1 calc(100% - var(--top-nav-height) - var(--loadmore-height));
+        overflow: auto;
+
+        .manage-list{
+            width: 100%;
+            @include flexDisplayDirection(column, 10px);
+        }
+        .article{
+            width: 100%;
+            height: 50px;
+            @include flexDisplayJustify(space-between, 10px);
+
+            .id{
+                background: var(--body-bg-color);
+                width: 50px;
+                height: 100%;
+                border-radius: 4px;
+                @include flexDisplayJustify(center);
+                color: white;
+                flex: 1 1 10%;
+
+                @include EightHundred{
+                    display: none;
+                }
+            }
+            .info{
+                background: var(--body-bg-color);
+                flex: 1 1 80%;
+                height: 100%;
+                @include flexDisplayJustify(space-between, 10px);
+                border-radius: 4px;
+                padding: 5px 20px;
+
+                .username, .email, .date, .tag{
+                    height: 100%;
+                    flex: 1 1 100px;
+                    color: white;
+                    @include flexDisplayJustify(flex-start);
+                }
+                .email{
+                    @include SevenHundred{
+                        display: none;
+                    }
+                }
+                .username{
+                    @include SevenHundred{
+                        display: none;
+                    }
+                }
+
+                .title{
+                    color: white;
+                    flex: 1 1 300px;
+                    @include flexDisplayJustify(start);
+                    align-items: start;
+                }
+
+                .date{
+                    @include FourHundred{
+                        display: none;
+                    }
+                }
+
+                .title{
+                    height: 50px;
+                    padding: 10px 0;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+            }
+            .actions{
+                width: 70px;
+                height: 100%;
+                @include flexDisplayJustify(center, 3px);
+
+                .delete, .edit{
+                    height: 100%;
+                    width: 100%;
+                    @include flexDisplayJustify(center);
+                    background: var(--body-bg-color);
+                    border-radius: 4px;
+                    a{
+                        text-decoration: none;
+                        color: white;
+                    }
+                }
+            }
+        }
+    }
+    .loadmore{
+        flex: 1 1 var(--loadmore-height);
+        width: 100%;
+        @include flexDisplayJustify(flex-end);
+        align-items: flex-start;
+
+        a{
+            background: var(--body-bg-color);
+            height: calc(var(--loadmore-height) * .8);
+            border-radius: 4px;
+            color: white;
+            text-decoration: none;
+            padding: 0 10px;
+            @include flexDisplayJustify(center);
+        }
+    }
+}

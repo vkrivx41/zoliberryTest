@@ -1,0 +1,63 @@
+
+@import 'Partials/algining.scss';
+@import 'Partials/media_queries.scss';
+
+.header{
+    // background: red;
+    height: 40px;
+    @include flexDisplayJustify(start);
+    padding: 0 20px;
+    color: white;
+}
+
+.form{
+    // background: green;
+
+    form{
+        width: 300px;
+        margin: 0 20px;
+        padding: 20px 0;
+        // background: yellow;
+        @include flexDisplayDirection(column, 10px);
+
+        div{
+            width: 100%;
+            height: 90px;
+            @include flexDisplayJustify(flex-start, 4px);
+            flex-direction: column;
+
+            .error{
+                background: red;
+                border-radius: 4px;
+                color: white;
+                padding: 5px 10px;
+                height: 50px;
+
+                &.off{
+                    display: none;
+                }
+            }
+            input{
+                height: 40px;
+                width: 100%;
+                padding: 0 20px;
+                border: none;
+                outline: none;
+                font-weight: 550;
+                border-radius: 4px;
+
+                &[type='submit']{
+                    height: 40px;
+                    width: 50%;
+                    font-weight: 550;
+                    background: var(--body-bg-color);
+                    color: white;
+
+                    &:hover{
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+    }
+}

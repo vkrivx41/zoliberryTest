@@ -1,0 +1,190 @@
+
+
+
+
+@import "./../css/Partials/algining.scss";
+@import "./../css/Partials/media_queries.scss";
+
+.body-contents{
+    overflow: auto;
+}
+
+:root{
+    --radius: 4px;
+}
+
+
+form{
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    padding: 0px 10px 200px 0px;
+
+    @include FiveHundred{
+        padding: 0px 10px 300px 0px;
+    }
+}
+
+.post_creator_container_div{
+    width: 100%;
+    @include flexDisplayDirection(column, 3px);
+    align-items: flex-start;
+    justify-content: space-between;
+
+    div{
+        width: 100%;
+        .title{
+            width: 300px;
+            height: 40px;
+            background: var(--body-bg-color);
+            color: white;
+            border-radius: var(--radius);
+
+            @include flexDisplayJustify(flex-start);
+            font-size: 1.1rem;
+            padding: 0px 10px;
+            margin: 4px 0px;
+
+            @include EightHundred{
+                font-size: .9rem;
+            }
+
+        }
+        input{
+            padding: 10px 6px;
+            margin: 7px 0px;
+            width: 250px;
+            font-size: 1rem;
+            border: none;
+            outline: none;
+        }
+        input[type=text]{
+            width: 100%;
+        }
+        input[type=file]{
+            background: var(--body-bg-color);
+            color: white;
+        }
+        textarea{
+            padding: 10px 6px;
+            width: 100%;
+            font-size: 1rem;
+            border: none;
+            outline: none;
+            resize: vertical;
+        }
+
+    }
+    .submit_container{
+        flex: 1 1 30%;
+        width: 100%;
+        @include flexDisplayJustify(flex-start, 5px);
+        margin: 5px 0px;
+        button{
+            height: 40px;
+            width: 90px;
+            background: var(--body-bg-color);
+            border: none;
+            outline: none;
+            padding: 4px 3px;
+            border-radius: var(--radius);
+            font-size: 1rem;
+            color: white;
+
+            &:hover{
+                cursor: pointer;
+            }
+        }
+    }
+
+    .rules{
+
+        flex: 1 1 60%;
+        width: 100%;
+        @include flexDisplayJustify(center);
+        align-items: flex-start;
+        justify-content: flex-start;
+        flex-direction: column;
+
+        .title{
+            height: 40px;
+            width: 100%;
+            border-radius: var(--radius);
+            font-size: 1.1rem;
+            @include flexDisplayJustify(center);
+            background: #000;
+            color: white;
+
+            @include EightHundred{
+                font-size: .9rem;
+            }
+        }
+        .rules_drop{
+            height: 85%;
+            border-radius: var(--radius);
+            padding: 10px 0px;
+            @include flexDisplayDirection(column, 5px);
+            align-items: flex-start;
+
+            .rule{
+                height: 100%;
+                padding: 8px 10px;
+                font-size: 1rem;
+                border-radius: 2px;
+                color: white;
+                @include flexDisplayJustify(center);
+                justify-content: flex-start;
+
+                @include EightHundred{
+                    font-size: 1rem;
+                }
+            }
+        }
+    }
+    .category{
+        flex: 1 1 40%;
+        width: 100%;
+        @include flexDisplayJustify(center);
+        align-items: flex-start;
+        justify-content: flex-start;
+        flex-direction: column;
+
+        .title{
+            flex: 1 1 40px;
+            width: 100%;
+            border-radius: var(--radius);
+            @include flexDisplayJustify(flex-start);
+            background: var(--body-bg-color);
+            color: white;
+        }
+        .category_drop{
+            flex: 1 1 80%;
+            width: 100%;
+            border-radius: var(--radius);
+            @include flexDisplayDirection(column, 5px);
+            align-items: flex-start;
+            justify-content: space-between;
+
+            .category_choice{
+                flex: 1 1 70%;
+                width: 100%;
+                @include flexDisplayJustify(flex-start);
+
+                select{
+                    height: 40px;
+                    width: 20%;
+                    border-radius: var(--radius);
+                    font-size: 1rem;
+                    padding: 4px 3px;
+                    margin: 3px 0px
+                }
+            }
+        }
+    }
+}
+
+
+
+hr{
+    margin: 50px 0;
+}

@@ -1,0 +1,101 @@
+*, *::after, *::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --body-bg-color: rgb(0, 135, 180);
+  --nav-height: 45px;
+  --nav-text-color: hsl(0, 0%, 0%);
+  --nav-bg-color: hsl(0, 0%, 100%);
+  --left-part-height: 30%;
+  --body-gap: 16px;
+  --footer-height: 300px;
+  --scale: .96;
+  --post-height: 250px;
+}
+
+body {
+  background: red;
+}
+
+title {
+  font-size: 100px;
+}
+
+.stats_contents .header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: auto;
+}
+
+.stats_contents .header div {
+  margin: 0 10px;
+}
+
+.author_stats .article {
+  margin: 10px 0;
+  height: 60px;
+  width: 100%;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.author_stats .article div {
+  height: 100%;
+  width: 100%;
+  background: var(--body-bg-color);
+  padding: 10px 10px;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: auto;
+  color: white;
+}
+
+.author_stats .article .views {
+  flex: 1 1 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: auto;
+}
+
+.author_stats .article .title {
+  font-size: 20px;
+}
+
+.author_stats .article .date {
+  flex: 1 1 200px;
+}
+
+.author_stats .heading {
+  height: 45px;
+  margin: 20px 0;
+  background: black;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.author_stats .heading .views {
+  height: 100%;
+  width: 80px;
+  color: white;
+  font-weight: 550;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: auto;
+  padding: 0 10px;
+  border-radius: 3px;
+  background: var(--body-bg-color);
+}
+/*# sourceMappingURL=AuthorStats.css.map */

@@ -1,0 +1,60 @@
+
+@mixin NineHundred{
+    @media screen and (max-width: 900px) {
+        @content
+    }
+};
+
+@mixin EightHundred{
+    @media screen and (max-width: 800px) {
+        @content
+    }
+};
+@mixin SevenHundred{
+    @media screen and (max-width: 700px) {
+        @content
+    }
+};
+
+
+@mixin SevenThreeSeven{
+    @media screen and (max-width: 737px) {
+        @content
+    }
+};
+@mixin SixHundred{
+    @media screen and (max-width: 600px) {
+        @content
+    }
+};
+@mixin FiveHundred{
+    @media screen and (max-width: 500px) {
+        @content
+    }
+};
+
+@mixin FourHundredFifty {
+    @media screen and (max-width: 470px){
+        @content
+    }
+};
+
+
+@mixin FourHundred{
+    @media screen and (max-width: 400px) {
+        @content
+    }
+};
+
+
+@mixin ThreeFifty{
+    @media screen and (max-width: 350px) {
+        @content;
+    }
+};
+
+@mixin ThreeThreeFive{
+    @media screen and (max-width: 335px) {
+        @content;
+    }
+};

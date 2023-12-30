@@ -1,0 +1,77 @@
+
+@mixin flex {
+    display: flex;
+    align-items: center;
+}
+@mixin flexDisplayWrap ($wrap, $gap:auto){
+    @include flex;
+    flex-wrap: $wrap;
+    gap : $gap
+}
+
+@mixin flexDisplayDirection ($direction, $gap:auto) {
+    @include flex;
+    flex-direction: $direction;
+    gap : $gap
+}
+
+@mixin flexDisplayJustify ($jusify : center, $gap:auto) {
+    @include flex;
+    justify-content: $jusify;
+    gap : $gap
+}
+
+@mixin text {
+    color: var(--text_color);
+    letter-spacing: .5px;
+    // user-select: none;
+}
+@mixin text_color {
+    @include flexDisplayJustify(center);
+    color: var(--text_color);
+    letter-spacing: .5px;
+    user-select: none;
+}
+
+@mixin basic_button {
+    border: none;
+    outline: none;
+    border-radius: $radius;
+}
+
+@mixin advanceButton($bg, $color){
+    background: $bg;
+    border: none;
+    outline: none;
+    font-size: .6rem;
+    font-weight: 600;
+    padding: .8rem .5rem;
+    border-radius: .3rem;
+    box-sizing: border-box;
+    border: 1px solid transparent;
+    color: $color;
+}
+
+
+
+
+
+
+*, *::after, *::before{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+:root{
+    --body-bg-color: rgb(0, 135, 180);
+    --nav-height: 45px;
+    --nav-text-color: hsl(0, 0%, 0%);
+    --nav-bg-color: hsl(0, 0%, 100%);
+    --left-part-height: 30%;
+    --body-gap: 16px;
+    --footer-height: 300px;
+    --scale: .96;
+    --post-height: 250px; 
+}

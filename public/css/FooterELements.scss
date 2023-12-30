@@ -1,0 +1,234 @@
+
+@import 'Partials/_algining.scss';
+@import 'Partials/_media_queries.scss';
+
+:root{
+    --standard_width: 700px;
+}
+
+.posts_container{
+    background: var(--nav-bg-color);
+    height: calc(100vh - 40px);
+
+    @include flexDisplayDirection(column, 10px);
+    align-items: center;
+    justify-content: flex-start;
+    margin: 40px 0;
+    width: 100%;
+
+    @include SevenHundred{
+        padding: 30px;
+    }
+}
+
+.header{
+    width: var(--standard_width);
+    text-align: start;
+    width: 100%;
+
+    h1{
+        padding: 10px 0;
+        color: var(--nav-text-color);
+    }
+}
+
+.contents{
+    width: 100%;
+    .error{
+        color: red;
+        font-size: 20px;
+    }
+}
+
+
+form{
+    width: var(--standard_width);
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    
+
+    .feed{
+        width: 100%;
+        margin: 5px 0;
+        display: flex;
+        flex-direction: column;
+
+        .error{
+            color: red;
+            font-size: 20px;
+            padding: 10px 0;
+        }
+
+        input{
+            height: 40px;
+            width: 50%;
+            padding: 0 15px;
+            font-size: 16px;
+            border: 1px solid black;
+
+            &::placeholder{
+                font-size: 16px;
+                letter-spacing: .8px;
+            }
+
+        }
+
+        textarea{
+            resize: none;
+            padding: 10px 15px;
+            font-size: 17px;
+            border: 1px solid black;
+            width: 50%;
+        }
+
+        button{
+            height: 40px;
+            font-size: 20px;
+            background: var(--body-bg-color);
+            color: var(--nav-text-color);
+            width: 100px;
+            border: none;
+            outline: none;
+
+            &:hover{
+                opacity: .9;
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+
+.advert_header{
+    border: 1px solid var(--nav-text-color);
+    font-size: 22px;
+    padding: 10px 20px;
+    width: var(--standard_width);
+    color: var(--nav-text-color);
+    border-radius: 3px;
+    width: 100%;
+}
+
+.advert_contacts{
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid var(--nav-text-color);
+    border-radius: 3px;
+
+    .phone, .email{
+        @include flexDisplayJustify(flex-start, 10px);
+        padding: 10px 0;
+
+        .key{
+            font-size: 19px;
+            color: var(--nav-text-color)
+        }
+        .value{
+            font-size: 20px;
+            color: var(--nav-text-color);
+
+            a{
+                text-decoration: none;
+                color: var(--nav-text-color);
+            }
+        }
+    }
+}
+
+
+// about us
+
+.about_intro{
+    width: var(--standard_width);
+    width: 100%;
+    border: 1px solid var(--nav-text-color);
+    padding: 10px 20px;
+    font-size: 20px;
+    user-select: none;
+    color: var(--nav-text-color);
+
+    display: flex;
+    flex-direction: column;
+}
+
+.categories{
+    margin: 10px 0;
+    border: 1px solid var(--nav-text-color);
+
+    ul{
+        padding: 10px 20px;
+        li{
+            list-style: none;
+            list-style:  inside;
+            padding: 5px 0;
+            a{
+                text-decoration: none;
+                font-size: 20px;
+                color: var(--nav-text-color);
+            }
+        }
+    }
+}
+
+
+// privacy
+
+.privacy_notes{
+    width: var(--standard_width);
+
+    .header{
+        padding: 10px 0;
+        font-size: 22px;
+        font-weight: 550;
+        color: var(--nav-text-color);
+    }
+    .cover{
+        font-size: 21px;
+        color: var(--nav-text-color);
+    }
+}
+
+
+// dev
+
+.dev_head{
+    padding: 0 20px;
+}
+
+.details{
+    @include flexDisplayJustify(space-between, 10px);
+    height: 400px;
+    padding: 20px;
+
+    .image{
+        height: 300px;
+        width: 400px;
+
+        img{
+            height: 100%;
+            width: 100%;
+        }
+    }
+
+    .description{
+        height: 50%;
+        width: 50%;
+        @include flexDisplayDirection(column, 10px);
+        align-items: flex-start;
+        justify-content: flex-start;
+
+        div{
+            flex: 1 1 1;
+            width: 100%;
+            font-size: 20px;
+
+            a{
+                text-decoration: none;
+                color: var(--nav-text-color);
+            }
+        }
+    }
+}

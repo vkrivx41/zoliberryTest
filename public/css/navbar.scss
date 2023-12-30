@@ -1,0 +1,482 @@
+@import 'Partials/_algining.scss';
+@import 'Partials/_media_queries.scss';
+
+
+*, *::before, *::after{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root{
+    --body-bg-color: hsl(195, 100%, 35%);
+    --nav-height: 45px;
+    --left-part-height: 30%;
+    --body-gap: 16px;
+    --footer-height: 200px;
+    --scale: .96;
+    --services-height: 60px;
+}
+
+body{
+    height: 100vh;
+    width: 100vw;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    overflow: auto;
+    overflow-x: hidden;
+
+    &::-webkit-scrollbar{
+        width: .6vw;
+
+        @include SevenHundred{
+            width: 1.5vw;
+        }
+    }
+
+    &::-webkit-scrollbar-track{
+        background: hsl(0, 13%, 38%);
+    }
+
+    &::-webkit-scrollbar-thumb{
+        background: hsl(0, 0%, 82%);
+        border-radius: 3px;
+    }
+
+    
+
+    @include FiveHundred{
+        ::-webkit-scrollbar{
+            display: none;
+        }
+        ::-webkit-scrollbar-button{
+            display: none;
+        }
+        ::-webkit-scrollbar-thumb{
+            display: none;
+        }
+    }
+}
+
+.navbar{
+    height: var(--nav-height);
+    width: 100vw;
+    background: var(--nav-bg-color);
+    box-shadow: -1px 0px 1px 1px var(--nav-text-color);
+    @include flexDisplayJustify(space-between, 3px);
+
+    @include FiveHundred{
+        @include flexDisplayDirection(column, 3px);
+        align-items: center;
+    }
+
+
+    // nav-left
+
+    .nav-left{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex: 1 1 25%;
+        @include flexDisplayJustify(flex-end);
+
+        @include EightHundred{
+            display: none;
+        }
+
+
+        .logo-container{
+            @include flexDisplayJustify(center);
+            width: 80%;
+
+
+            .logo-items{
+                display: flex;
+                text-transform: capitalize;
+                text-decoration: none;
+
+                .item{
+                    @include flexDisplayJustify(center);
+                    width: 25px;
+                    font-size: 1.5rem;
+                    font-weight: 600;
+                    background: var(--nav-text-color);
+                    color: var(--nav-bg-color);
+                    padding: 5px 12px;
+
+                    @include SevenHundred{
+                        width: 24px;
+                        font-size: 1.3rem;
+
+                    }
+                }
+            }
+        }
+    }
+
+    // // nav-center
+    .nav-center{
+        @include flexDisplayJustify(center);
+        flex: 1 1 50%;
+
+        .nav-links{
+            @include flexDisplayJustify(center, 5px);
+            height: 100%;
+            width: 60%;
+            padding: 0 10px;
+
+            @include EightHundred{
+                @include flexDisplayJustify(center, 15px);
+            }
+
+            @include FiveHundred{
+                @include flexDisplayJustify(center, calc(var(--body-gap)));
+            }
+
+            .link{
+                position: relative;
+                width: 100%;
+                font-size: 1rem;
+                font-weight: 550;
+                text-decoration: none;
+                color: var(--nav-text-color);
+                height: var(--nav-height);
+                @include flexDisplayJustify(center);
+
+
+                @include NineHundred{
+                    font-size: .9rem;
+                }
+                
+
+                @include FiveHundred{
+                    font-size: .9rem;
+                }
+
+                span{
+                    position: absolute;
+                    top: 10%;
+                    right: 0%;
+                    @include flexDisplayJustify(center);
+                    font-size: 10px;
+                    width: 14px;
+                    height: 14px;
+                    background: red;
+                    color: white;
+                    border-radius: 100%;
+
+
+                    @include FiveHundred{
+                        right: -24px;
+                    }
+
+                    @include FiveHundred{
+                        right: -14px;
+                    }
+                }
+            }
+        }
+    }
+    
+    // // nav-right
+    .nav-right{
+        --toggle-width: 50px;
+        --toggle-height: calc(var(--toggle-width) * .5);
+        flex: 1 1 25%;
+        @include flexDisplayJustify(flex-start);
+
+        @include SevenHundred{
+            --toggle-width: 40px;
+        }
+
+        @include FiveHundred{
+            --toggle-width: 40px;
+           margin: 10px;
+           align-self: flex-end;
+        }
+
+        .dark-theme-toggler{
+            @include flexDisplayJustify(center);
+            width: 100%;
+
+            input[type="checkbox"]{
+                appearance: none;
+                width: var(--toggle-width);
+                height: var(--toggle-height);
+                position: relative;
+                outline: 1px solid white;
+                border-radius: 20px;
+                box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+                background: var(--nav-text-color);
+
+                &:checked{
+                    background: var(--nav-bg-color);
+                }
+
+                &::before{
+                    content: "";
+                    position: absolute;
+                    height: var(--toggle-height);
+                    width: var(--toggle-height);
+                    background: var(--nav-bg-color);
+                    top: 0%;
+                    left: 0%;
+                    border-radius: 20px;
+                    border: 3px solid var(--nav-text-color);
+                    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+                    transition: .5s;
+                }
+                &:checked::before{
+                    left: var(--toggle-height);
+                    border: 1px solid var(--nav-bg-color);
+                    background: var(--nav-text-color);
+                }
+            }
+        }
+    }
+
+    .nav-left, .nav-center, .nav-right{
+        flex-shrink: 1;
+        flex-grow: 1;
+        height: 100%;
+    }
+}
+
+
+
+
+
+
+// web-services
+
+
+.web-services{
+    --services-height: 40px;
+
+    height: var(--services-height);
+    transform: scale(var(--scale));
+    margin: var(--body-gap) auto;
+    @include flexDisplayJustify(space-between, 20px);
+
+
+    @include SevenThreeSeven{
+        @include flexDisplayJustify(space-between, 10px);
+    }
+
+    @include FiveHundred{
+        margin: calc(var(--body-gap) * 3) 0 calc(var(--body-gap) * -2) 0;
+    }
+
+    .welcome, .date{
+        font-size: 17px;
+        font-weight: 550;
+        border: 1px solid var(--nav-text-color);
+        background: var(--nav-bg-color);
+        color: var(--nav-text-color);
+        padding: 10px 25px;
+        border-radius: 3px;
+        flex: 1 1 25%;
+        @include flexDisplayJustify(flex-start);
+        text-align: center;
+    }
+
+    .welcome{
+        @include SevenThreeSeven{
+            display: none;
+        }
+    }
+
+    .date{
+        flex: 1 1 10%;
+        @include SixHundred{
+            display: none;
+        }
+    }
+    
+    .search{
+        height: var(--services-height);
+        padding: 10px 5px;
+        flex: 1 1 50%;
+        @include flexDisplayJustify(center);
+
+        @include SevenThreeSeven{
+            @include flexDisplayJustify(flex-start);
+        }
+
+        form{
+            height: 100%;
+            width: 60%;
+            @include flexDisplayJustify(center, 20px);
+            input{
+                padding: 10px 5px;
+                flex: 1 1 80%;
+            }
+    
+            button{
+                height: var(--services-height);
+                padding: 10px 5px;
+                background: var(--body-bg-color);
+                @include advanceButton(var(--body-bg-color), white);
+                flex: 1 1 10%;
+            }
+        }
+
+        
+    }
+}
+
+
+
+
+
+// post-container
+
+
+.posts_container{
+    display: grid;
+    --scale: .96;
+    grid-template-columns: repeat(6, 1fr);
+    gap: var(--body-gap);
+    height: calc(97% - var(--services-height));
+    transform: scale(var(--scale));
+    padding: 0 0 var(--body-gap) 0;
+
+    
+
+    @include SevenHundred{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        height: 700px;
+    }
+
+    @include FiveHundred{
+        --transform: scale(var(--scale));
+        height: auto;
+        transform: scale(var(--scale));
+    }
+
+    .top-stories{
+        height: 95%;
+        width: 100%;
+        grid-column: span 3;
+
+        @include FiveHundred{
+            display: none;
+        }
+
+    }
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+footer{
+    --header-height: 50px;
+    --footer-width: 100%;
+
+
+
+    width: var(--footer-width);
+    background: var(--nav-bg-color);
+    transform: scale(var(--scale));
+    @include flexDisplayJustify(center, 10px);
+    flex-wrap: wrap;
+    border-top: 2px solid black;
+    // background: red;
+
+    @include FiveHundred{
+        margin: var(--body-gap) 0;
+    }
+
+
+
+    .left-footer, .center-footer, .right-footer{
+        flex: 1 1 300px;
+        height: 150px;
+        display: flex;
+        flex-direction: column;
+
+        .header{
+            height: 50px;
+            padding: 15px;
+            font-size: 1.2rem;
+            color: var(--nav-text-color);
+            font-weight: 550;
+        }
+
+        .find-us-link, .explore-links, .operation-links{
+            height: 100px;
+            @include flexDisplayJustify(space-between, 30px);
+            flex-wrap: wrap;
+            justify-content: flex-start;
+            padding: 5px;
+            border-right: 1px solid var(--nav-text-color);
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+
+            .link{
+                flex: 1 1 calc(100% / 4);
+                font-size: .8rem;
+                font-weight: 550;
+                padding: 0 7px;
+                border-right: 1px solid var(--nav-text-color);
+
+                &:last-child, &:nth-child(3){
+                    border: none;
+                }
+
+                a{
+                    font-size: 1em;
+                    text-decoration: none;
+                    color: var(--nav-text-color);
+                }
+            }
+
+        }
+    }
+}
+
+
+.title{
+    color: white;
+}
+
+
+
+
+
+.story{
+    color: white;
+
+    a{
+        color: white;
+    }
+}
+
+.top-story.noshow{
+    display: none;
+}
+
+.top-story.show{
+    display: flex;
+}

@@ -1,0 +1,108 @@
+@import 'Partials/algining.scss';
+@import 'Partials/media_queries.scss';
+
+.authors-contents{
+    // background: red;
+    height: 100%;
+    scale: var(--scale);
+    @include flexDisplayJustify(space-between, 10px);
+
+    .sidebar{
+        flex: 1 1 30%;
+        height: 100%;
+        @include flexDisplayDirection(column);
+        align-items: start;
+        justify-content: space-between;
+
+        @include SevenHundred{
+            display: none;
+        }
+
+        .authors-list{
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+            @include flexDisplayDirection(column, 10px);
+            justify-content: start;
+            align-items: start;
+
+            .author{
+                width: 100%;
+                height: calc(100% / 5);
+                @include flexDisplayJustify(space-between, 3px);
+                text-decoration: none;
+
+                .leftpart{
+                    height: 100%;
+                    flex: 1 1 30%;
+                    background: var(--nav-bg-color);
+                    border: 1px solid var(--nav-text-color);
+                    color: var(--nav-text-color);
+
+                    img{
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+                .rightpart{
+                    height: 100%;
+                    flex: 1 1 70%;
+                    background: var(--nav-bg-color);
+                    border: 1px solid black;
+                    padding: 10px;
+                    
+                    .names, .email, .phone{
+                        padding: 4px 0;
+                        font-weight: 550;
+                        text-decoration: none;
+                        color: var(--nav-text-color);
+                    }
+                }
+            }
+        }
+    }
+
+    .contents{
+        flex: 1 1 70%;
+        height: 100%;
+        @include flexDisplayJustify(space-between, 10px);
+        align-items: flex-start;
+        flex-wrap: wrap;
+
+
+        .profile-image{
+            flex: 1 1 200px;
+            height: 50%;
+            background: var(--nav-bg-color);
+            border: 1px solid var(--nav-text-color);
+
+            img{
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+        .info{
+            flex: 1 1 300px;
+            height: 50%;
+            background: var(--nav-bg-color);
+            padding: 20px;
+
+            .names, .email, .phone, .date, .posts{
+                padding: 10px 0;
+                font-weight: 550;
+                color: var(--nav-text-color);
+            }
+
+            .names{
+                font-size: 2rem;
+            }
+        }
+    }
+}
+
+
+img{
+    width: 100px;
+    height: 100px;
+}

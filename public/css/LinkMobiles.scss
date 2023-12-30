@@ -1,0 +1,110 @@
+@import 'Partials/_algining.scss';
+@import 'Partials/_media_queries.scss';
+
+
+.mobile-popular-header{
+    transform: scale(var(--scale));
+    height: 35px;
+    width: 100%;
+    display: none;
+    margin-top: -50px;
+
+    @include flexDisplayJustify(flex-start);
+
+    @include SevenHundred{
+        display: flex;
+    }
+
+    .text{
+        background: var(--nav-bg-color);
+        color: var(--nav-text-color);
+        height: 100%;
+        @include flexDisplayJustify(flex-start);
+        padding: 0 10px;
+        display: none;
+        border: 1px solid white;
+
+        @include SevenHundred{
+            display: flex;
+        }
+    }
+}
+
+.mobile_popular_posts{
+    width: 700px;
+    display: none;
+
+    @include SevenHundred{
+        width: 100%;
+        --post-height: 250px;
+        @include flexDisplayJustify(center, var(--body-gap));
+        flex-wrap: wrap;
+
+        transform: scale(var(--scale));
+    }
+
+    .popular{
+        --bottom-push: 35px;
+
+        flex: 1 1 200px;
+        height: var(--post-height);
+        width: 100%;
+        background: #000;
+        position: relative;
+
+        .wrapper{
+            position: absolute;
+            z-index: 10;
+        }
+
+        .image{
+            position: absolute;
+            height: 100%;
+            width: 100%;
+
+            .image-link{
+                height: 100%;
+                width: 100%;
+
+                img{
+                    height: 100%;
+                    width: 100%;
+                }
+            }
+        }
+
+        .title{
+            position: absolute;
+            bottom: var(--bottom-push);
+            z-index: 11;
+            padding: 0 10px;
+
+            .title-link{
+                color: white;
+                text-decoration: none;
+                font-size: 16px;
+            }
+        }
+
+        .description{
+            position: absolute;
+            bottom: 0;
+            height: vae(--bottom-push);
+            z-index: 11;
+            padding: 15px 10px;
+            width: 100%;
+
+            @include flexDisplayJustify(flex-start, 10px);
+
+            .tag{
+                color: white;
+                font-size: 15px;
+            }
+            .author{
+                color: white;
+                font-size: 15px;
+            }
+        }
+    }
+
+}

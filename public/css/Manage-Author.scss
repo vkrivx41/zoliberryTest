@@ -1,0 +1,163 @@
+@import "./../css/Partials/_algining.scss";
+@import "./../css/Partials/_media_queries.scss";
+
+
+
+.manage-authors-contents{
+
+    --top-nav-height: 40px;
+    --items-padding: 20px;
+
+    background: transparent;
+    width: 100%;
+    height: 100%;
+    @include flexDisplayJustify(center, 30px);
+    flex-direction: column;
+
+    .top-nav{
+        width: 100%;
+        flex: 1 1 var(--top-nav-height);
+        @include flexDisplayJustify(space-between, 5px);
+        flex-wrap: wrap;
+
+        .create-new{
+            font-size: 1rem;
+            padding: 10px;
+            border-radius: 3px;
+            background: var(--body-bg-color);
+
+            a{
+                text-decoration: none;
+                color: white;
+            }
+        }
+
+        .search-element{
+            height: 100%;
+            width: 400px;
+
+            input{
+                width: 100%;
+                height: 100%;
+                padding: 0 10px;
+                margin: 0 40px;
+                border: none;
+                outline: none;
+            }
+        }
+        .count{
+            margin-left: auto;
+            margin-right: var(--items-padding);
+            background: var(--body-bg-color);
+            padding: 10px;
+            border-radius: 4px;
+            color: white;
+        }
+
+        .count-text{
+            background: var(--body-bg-color);
+            padding: 10px;
+            border-radius: 4px;
+            color: white;
+        }
+    }
+    .manage-body{
+        width: 100%;
+        flex: 1 1 calc(100% - var(--top-nav-height));
+        overflow: auto;
+        overflow-x: hidden;
+
+        .manage-list{
+            width: 100%;
+            @include flexDisplayDirection(column, 20px);
+
+        }
+        .author{
+            width: 100%;
+            height: 45px;
+            @include flexDisplayJustify(space-between, 10px);
+
+            @include FiveHundred{
+                @include flexDisplayJustify(space-between);
+            }
+
+            .id{
+                background: var(--body-bg-color);
+                width: 50px;
+                height: 100%;
+                border-radius: 4px;
+                @include flexDisplayJustify(center);
+                color: white;
+
+                @include SevenHundred{
+                    display: none;
+                }
+            }
+            .info{
+                background: var(--body-bg-color);
+                flex: 1 1 100%;
+                height: 100%;
+                @include flexDisplayJustify(space-between, 3px);
+                border-radius: 4px;
+                padding: 5px 40px;
+
+                @include FiveHundred{
+                    flex: 1 1 80%;
+                    padding: 5px 20px;
+                }
+
+                .username, .password, .email, .phone{
+                    color: white;
+                    flex: 1 1 100px;
+                }
+
+                .email, .password{
+                    @include SixHundred{
+                        display: none;
+                    }
+                }
+
+                .phone{
+                    @include ThreeFifty{
+                        display: none;
+                    }
+                }
+                .mail{
+                    @include NineHundred{
+                        display: none;
+                    }
+                }
+
+                .body{
+                    padding: 0 20px;
+                }
+
+                .names{
+                    @include SevenHundred{
+                        display: none;
+                    }
+                }
+            }
+            .actions{
+                background: var(--body-bg-color);
+                width: 70px;
+                height: 100%;
+                @include flexDisplayJustify(center);
+                border-radius: 4px;
+                padding: 5px 10px;
+
+                @include FiveHundred{
+                    flex: 0 1 20%;
+                }
+
+                .delete{
+                    width: 100%;
+                    a{
+                        text-decoration: none;
+                        color: white;
+                    }
+                }
+            }
+        }
+    }
+}
