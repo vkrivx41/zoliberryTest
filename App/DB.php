@@ -23,6 +23,7 @@
                 $this->config['options'] ?? $defaultOptions
             );
             } catch (\PDOException $error) {
+                echo $error;
                 echo "Can't connect to the website right now, try again later.";
             }
         }
