@@ -19,7 +19,7 @@ class ManagementController extends RegistrationController
     private array $consignment = [];
     private array $images = [];
 
-    private string $uploadDirectory = 'images/Articles';
+    private string $uploadDirectory = '/images/Articles';
 
     public function __construct(
         protected SessionController $session,
@@ -216,6 +216,7 @@ class ManagementController extends RegistrationController
         }
 
         if ($error !== 0){
+            echo $error;
             return $this->UriResolver('error');
         }
 
