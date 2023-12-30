@@ -20,7 +20,7 @@ class ArticlesModel extends Model
     public function create(array $data): bool
     {
         try {
-            $query = "INSERT INTO article (tag, title, one_text, two_text, three_text, four_text, five_text,  author) VALUES (:tag, :title, :one_text, :two_text, :three_text, :four_text, :five_text, :author)";
+            $query = "INSERT INTO Article (tag, title, one_text, two_text, three_text, four_text, five_text,  author) VALUES (:tag, :title, :one_text, :two_text, :three_text, :four_text, :five_text, :author)";
             $stmt = $this->db->prepare($query);
             $stmt->execute(
                 [
@@ -326,7 +326,7 @@ class ArticlesModel extends Model
     public function update_texts(array $data, int $id): bool
     {
         try {
-            $query = "UPDATE article SET tag=:tag, title=:title, one_text=:one_text, two_text=:two_text, three_text=:three_text, four_text=:four_text, five_text=:five_text WHERE id=:id";
+            $query = "UPDATE Article SET tag=:tag, title=:title, one_text=:one_text, two_text=:two_text, three_text=:three_text, four_text=:four_text, five_text=:five_text WHERE id=:id";
 
             $stmt = $this->db->prepare($query);
             $stmt->execute(
